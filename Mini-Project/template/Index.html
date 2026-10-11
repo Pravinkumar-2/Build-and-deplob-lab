@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Consumption Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container" style="max-width:520px; margin-top:40px">
+  <div class="card-form">
+    <h2 class="brand">Electricity Consumption Predictor</h2>
+    <h5>Welcome, {{ username }}!</h5>
+    <form action="{{ url_for('dashboard') }}" method="post" class="mt-3">
+      <input type="number" step="0.1" name="Temperature" value="{{ request.form.get('Temperature', '') }}" placeholder="Temperature (°C)"
+             class="form-control mb-3" required>
+      <select name="DayOfWeek" class="form-select mb-3" required>
+        <option value="">Day of Week</option>
+        {% for i, d in [(0,'Monday'),(1,'Tuesday'),(2,'Wednesday'),(3,'Thursday'),
+                        (4,'Friday'),(5,'Saturday'),(6,'Sunday')] %}
+        <option value="{{ i }}" {{ 'selected' if request.form.get('DayOfWeek') == i|string }}>{{ d }}</option>
+        {% endfor %}
+      </select>
+      <input type="number" min="1" max="12" name="Month" value="{{ request.form.get('Month', '') }}" placeholder="Month (1-12)"
+             class="form-control mb-3" required>
+      <input type="number" step="0.01" name="Lag_1" value="{{ request.form.get('Lag_1', '') }}" placeholder="Yesterday's consumption (kWh)"
+             class="form-control mb-3" required>
+      <input type="number" step="0.01" name="Lag_7" value="{{ request.form.get('Lag_7', '') }}" placeholder="Consumption 7 days ago (kWh)"
+             class="form-control mb-3" required>
+      <button type="submit" class="btn btn-power w-100">Predict</button>
+    </form>
+    {% if prediction_text %}
+      <div class="result-box">{{ prediction_text }}</div>
+    {% endif %}
+    <a href="{{ url_for('logout') }}" class="d-block text-center mt-3">Logout</a>
+  </div>
+</div>
+<div class="footer-dark">Electricity Consumption Predictor &copy; 2025</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

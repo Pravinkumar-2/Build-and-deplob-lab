@@ -1,0 +1,22 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #1f2937;
+       background: linear-gradient(135deg, #fff7e0 0%, #ffe9c7 100%); min-height: 100vh; }
+.brand { color: #d84315; font-weight: 700; }
+.btn-power { background: linear-gradient(90deg, #ff9800, #f4511e); color: #fff; font-weight: 600;
+             border: none; border-radius: 10px; padding: 10px 20px;
+             box-shadow: 0 4px 12px rgba(244, 81, 30, 0.35); }
+.btn-power:hover { color: #fff; filter: brightness(1.08); }
+.card-form { background: #ffffff; border-radius: 18px; padding: 36px;
+             box-shadow: 0 12px 35px rgba(216, 67, 21, 0.18); border-top: 6px solid #ff9800; }
+.form-control, .form-select { border-radius: 10px; padding: 10px 14px; border: 1px solid #e5e7eb; }
+.form-control:focus, .form-select:focus { border-color: #ff9800; box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.25); }
+.nav-link { color: #d84315; font-weight: 500; }
+.hero-title { font-size: 2.8rem; font-weight: 800; line-height: 1.15;
+              background: linear-gradient(90deg, #d84315, #ff9800); -webkit-background-clip: text;
+              background-clip: text; color: transparent; }
+.feature-card { background: #fff; border-radius: 16px; padding: 28px 20px; height: 100%;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
+.feature i { font-size: 2.2rem; color: #f4511e; margin-bottom: 10px; }
+.result-box { background: #e8f5e9; border-left: 5px solid #2e7d32; border-radius: 8px;
+              padding: 14px; margin-top: 18px; font-weight: 600; color: #1b5e20; text-align: center; }
+.footer-dark { background: linear-gradient(90deg, #d84315, #ff9800); color: #fff;
+               text-align: center; padding: 16px; margin-top: 40px; }
